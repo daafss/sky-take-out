@@ -42,10 +42,10 @@ public class CategoryServiceImpl implements CategoryService {
      */
     public void save(CategoryDTO categoryDTO) {
         Category category = BeanUtil.copyProperties(categoryDTO, Category.class);
-        category.setCreateUser(BaseContext.getCurrentId());
-        category.setUpdateUser(BaseContext.getCurrentId());
-        category.setCreateTime(LocalDateTime.now());
-        category.setUpdateTime(LocalDateTime.now());
+        // category.setCreateUser(BaseContext.getCurrentId());
+        // category.setUpdateUser(BaseContext.getCurrentId());
+        // category.setCreateTime(LocalDateTime.now());
+        // category.setUpdateTime(LocalDateTime.now());
         category.setStatus(StatusConstant.DISABLE);
         cateGoryMapper.insert(category);
     }
