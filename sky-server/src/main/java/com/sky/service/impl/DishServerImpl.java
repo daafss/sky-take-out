@@ -85,7 +85,7 @@ public class DishServerImpl implements DishService {
         }
         // 判断当前菜品是否能够删除---是否被关联了？？？
         List<Long> setmealIds = setmealMapper.getSetmealIdsByDishIds(ids);
-        if (setmealIds != null || setmealIds.size() > 0){
+        if (setmealIds != null && setmealIds.size() > 0){
             // 当前菜品被关联了，不能删除
             throw new DeletionNotAllowedException(MessageConstant.DISH_BE_RELATED_BY_SETMEAL);
         }
@@ -132,5 +132,16 @@ public class DishServerImpl implements DishService {
         }
         // 向口味表中插入n条数据
         dishFlavorMapper.insertBatch(flavors);
+    }
+
+    /**
+     * 菜品起售、停售
+     * @param status
+     * @param id
+     */
+    public void startOrStop(Integer status, Long id) {
+        Dish dish = dishMapper.getById(id);
+        dish.setStatus(status);
+        dishMapper.update(dish);
     }
 }
