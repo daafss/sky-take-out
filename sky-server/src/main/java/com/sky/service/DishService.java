@@ -4,6 +4,8 @@ import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.result.PageResult;
 
+import java.util.List;
+
 /**
  * Author: violet
  * Date: 2024/8/30 21:14
@@ -21,4 +23,10 @@ public interface DishService {
      * @return
      */
     PageResult pageQuery(DishPageQueryDTO dishPageQueryDTO);
+
+    /**
+     *
+     * @param ids
+     */
+    void deleteBatch(List<Long> ids);
 }

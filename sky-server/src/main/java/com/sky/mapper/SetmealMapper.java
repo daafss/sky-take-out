@@ -3,6 +3,8 @@ package com.sky.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 /**
  * Author: violet
  * Date: 2024/8/29 14:14
@@ -17,4 +19,11 @@ public interface SetmealMapper {
      */
     @Select("select count(id) from setmeal where category_id = #{id}")
     Integer countByCategoryId(Long id);
+
+    /**
+     * 根据ids查询setmeal 的id
+     * @param ids
+     * @return
+     */
+    List<Long> getSetmealIdsByDishIds(List<Long> ids);
 }
