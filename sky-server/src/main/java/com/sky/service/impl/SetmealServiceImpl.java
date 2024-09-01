@@ -29,6 +29,6 @@ public class SetmealServiceImpl implements SetmealService {
     public void save(SetmealDTO setmealDTO) {
         Setmeal setmeal = BeanUtil.copyProperties(setmealDTO, Setmeal.class, "setmealDishes");
         setmealMapper.insert(setmeal);
-        setmealMapper.insertBatch(setmealDTO.getSetmealDishes());
+        // setmealMapper.insertBatch(setmealDTO.getSetmealDishes());
     }
 }
