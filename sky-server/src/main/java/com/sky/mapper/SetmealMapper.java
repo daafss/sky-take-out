@@ -43,9 +43,6 @@ public interface SetmealMapper {
      * 插入新的套餐
      * @param setmeal
      */
-
-    @Insert("insert into setmeal (category_id, name, price, status, description, image, create_time, update_time, create_user, update_user) VALUES " +
-            "(#{categoryId}, #{name}, #{price}, #{status}, #{description}, #{image}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})")
     @AutoFill(OperationType.INSERT)
     void insert(Setmeal setmeal);
 
