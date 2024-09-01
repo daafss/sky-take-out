@@ -41,6 +41,13 @@
         </set>
         where id = #{id}
     </update>
+    <delete id="deleteByIds" parameterType="list">
+        delete from setmeal
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 
     <select id="getSetmealIdsByDishIds" resultType="java.lang.Long">
         select setmeal_id from setmeal_dish
@@ -65,6 +72,11 @@
             </if>
         </where>
         order by s.create_time desc
+    </select>
+    <select id="getSetmealAndCatgrayNameById" resultType="com.sky.vo.SetmealVO" parameterType="java.lang.Long">
+        select s.*, c.name categoryName
+        from setmeal s left join category c on c.id = s.category_id
+        where s.id = #{id}
     </select>
 
 </mapper>
