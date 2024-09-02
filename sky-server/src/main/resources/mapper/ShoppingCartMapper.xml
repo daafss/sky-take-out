@@ -19,6 +19,6 @@
                 and dish_flavor = #{dishFlavor}
             </if>
         </where>
-        order by create_time desc ``
+        order by create_time desc
     </select>
 </mapper>
